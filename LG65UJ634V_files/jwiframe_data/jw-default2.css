@@ -1,0 +1,76 @@
+﻿
+/*jWplayer*/
+#flix-jwplayer .jwplayer .jw-controls .jw-icon-rewind{
+    display: none;
+}
+#flix-jwplayer .jw-nextup-container{
+    display: none;
+}
+.flix-jw360{
+    position: relative;
+}
+
+.flix-jwicon360{
+    display: none;
+}
+.flix-jw360 .flix-jwicon360{
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    max-width: 45px;
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+    width: 9%;
+}
+
+
+.flix-viditem{
+    cursor: pointer;
+    position: relative;
+}
+ .threesixtyfallback{
+    display: none;
+}
+.flix-viditems ul#flix-vidlist{
+    margin: 0 auto !important;
+}
+
+.jw-display-icon-container, {
+    position: absolute;
+    left: 50%;
+    margin: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+}
+
+/* carousel safari empty li*/
+#inpage_container .jcarousel-item-undefined,
+#inpage_container .jcarousel-item-NaN{
+    display: none!important;
+}
+/* carousel safari empty li ends*/
+
+/*Gallery li play icon position*/
+#inpage_container .inpage_block .inpage_videothumbs li.flix-viditem{
+    position: relative;
+}  
+
+
+@media only screen and (max-width: 600px) {
+    #btn_close 
+   {
+        right: 0!important;
+        top: -40px;
+    }
+}
+
+
+/*cover poster*/
+#flix-jwplayer .jwplayer .jw-preview{
+    background-size: cover !important;
+}

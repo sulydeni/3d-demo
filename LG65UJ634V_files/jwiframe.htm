@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title></title>
+<script src="jwiframe_data/jquery-3.js"></script>
+<script type="text/javascript">
+
+//if JW videos exist, load JWlibrary
+(function() {
+    var flixdomain = "//media.flixcar.com/delivery/static/jwplayer/";
+
+    if(document.referrer.search('dev-delivery.flix360.com')!=-1 || document.referrer.search('flix-dev')!=-1  || document.referrer.search('live=0')!=-1 || location.href.search('dev-delivery.flix360.com')!=-1 || location.href.search('flix-dev')!=-1) 
+        flixdomain = "//dev-delivery.flix360.com/delivery/static/jwplayer/";
+    
+    if (document.referrer.search('flix-local') != -1 || location.href.search('flix-local') != -1 ) 
+        flixdomain = "//localhost/delivery_flix360/trunk/public/static/jwplayer/";
+    
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = flixdomain+"js/video-loader.js";
+    document.head.appendChild(script);
+
+})();
+
+</script><script type="text/javascript" src="jwiframe_data/video-loader.js"></script>
+
+<style type="text/css">
+body{background: #eee; margin: 0; padding: 0;}
+</style>
+<link rel="stylesheet" href="jwiframe_data/jw-default2.css" type="text/css"><script type="text/javascript" src="jwiframe_data/RUfolewa.js"></script></head>
+<body>
+
+<div id="flix-jwplayer"></div>
+
+
+
+
+
+</body></html>

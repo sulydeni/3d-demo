@@ -1,0 +1,38 @@
+_AT.applyWhenReady([{"action":"customCode","selector":"HEAD","content":"<style>\n  .credit-info {\n    margin-top:10px;\n    margin-bottom:10px;\n    padding:5px;\n    display: none;\n  }\n  .credit-info-open {\n    display: block;\n  }\n</style>\n<script>\n\nfunction changeYP() {\n  var $ = window.jQuery;\n  //define required variables / constants\n  var price = document.querySelector('#product-actions > .amounts [data-key=\"current-price\"]').innerText.substring(1);\n\u00A0 price = price.replace(/,/g, \"\") * 1;\n  var monthTerm = 24;\n  var delayPayment = false;\n  var aprRate = 19.9;\n  var monthlyPayment = calcMonthly(price, monthTerm, aprRate, delayPayment);\n  var totalPayable = Math.round(monthlyPayment * monthTerm * 100)/100;\n  if (price >= 99) {\n\n\n    var headline = 'Own this product for <strong>\u00A3' + numberWithCommas(monthlyPayment) + ' a  month</strong> (APR ' + aprRate + '%) representative';\n    var detail = 'Representative example: cash price: \u00A3' + numberWithCommas(price) + '. Spread the cost over ' + monthTerm + ' monthly payments of \u00A3' + numberWithCommas(monthlyPayment) + ' - total amount payable \u00A3' + numberWithCommas(totalPayable) + '. Rate of interest ' +aprRate + '% (variable)' + aprRate + '% APR representative.';\n    //console.log(headline);\n    //console.log(detail);\n\n    var $prdCreditList = $('.prd-credit-available');\n    $prdCreditList.each(function(_id, list){\n\n      var $originalLink = $(list).find('a');\n      var originalHref = $originalLink.attr('href');\n      // hide the original list item\n      $(list).find('li').hide();\n      var $prdCreditListItem = $('<li data-item=\"productCreditAvailable\"><a style=\"cursor: pointer;\">' + headline + '</a></li>');\n      var $creditInfo = $('<div class=\"credit-info\" data-component=\"alert\" data-type=\"MESSAGE\"><p>' + detail + '</p><p>Choose to pay with flexible credit during checkout</p></div>');\n      var $moreInfoLink = $('<a class=\"bullet-link anchor-lk\" href=\"'+originalHref+'\">more info</a>');\n      $creditInfo.append($moreInfoLink);\n      $prdCreditListItem.append($creditInfo);\n      $(list).prepend($prdCreditListItem);\n\n      $moreInfoLink.on('click', function(event){\n        event.preventDefault();\n        $originalLink.click();\n      });\n\n      $prdCreditListItem.on('click',function(event){\n        event.preventDefault();\n        if ($creditInfo.hasClass('credit-info-open')){\n          $creditInfo.removeClass('credit-info-open');\n        } else {\n          $creditInfo.addClass('credit-info-open');\n        }\n      })\n    });\n  };\n\n\n  //replace code on page\n  //document example as popup window\n  function calcMonthly(price, term, aprRate, delayPayment) {\n    var monthlyInt = Math.round((Math.pow((aprRate / 100) + 1,(1/12)) - 1) * 10000000) / 10000000;\n    console.log(monthlyInt);\n    var monthlyPayment = (price * monthlyInt * Math.pow(1 + monthlyInt, term)) / (Math.pow(1 + monthlyInt, term) - 1);\n\n    monthlyPayment = (Math.floor(monthlyPayment * 100)) / 100;\n\n    return monthlyPayment;\n\n  }\n  function numberWithCommas(num) {\n    return num.toFixed(2).replace(/\\B(?=(\\d{3})+(?!\\d))/g, \",\");\n  }\n\n}\ndocument.addEventListener('DOMContentLoaded',changeYP,false);\n</script>","cssSelector":"$cssSelector"}]);var mboxCurrent = mboxFactories.get('default').get('Global',0);mboxCurrent.setOffer(new mboxOfferAjax(''));mboxCurrent.getOffer().setOnLoad(function() {
+try {
+    if (typeof(s_tnt) == 'undefined') {
+        var s_tnt = '';
+    }
+    s_tnt += '93579:1:0,';
+
+    var sCampaignName = 'Monthly Credit Messaging AlwaysOn (99pounds) old library fix + decimal fix';
+    var sRecipeName = 'Monthly Credit Msg';
+    _satellite.setVar('Target Campaign Name',sCampaignName)
+    _satellite.setVar('Target Campaign Recipe',sRecipeName)
+    console.log(ttMETA);
+    if (sCampaignName.length > 0 && sRecipeName.length > 0) {
+            var s = s_gi(s_account);
+
+            s.linkTrackVars = 'eVar16';
+            s.linkTrackEvents = 'None';
+
+            //variable for TNT classifications
+            s.eVar16 = sCampaignName + ':' + sRecipeName;
+//            s.tl(true, 'o', 'TnT Tracking');
+    }
+} catch (e) {}
+
+/*T&T Metadata v3 ==>Response Plugin*/
+window.ttMETA=(typeof(window.ttMETA)!="undefined")?window.ttMETA:[];window.ttMETA.push({"CampaignName":"Monthly Credit Messaging AlwaysOn (99pounds) old library fix + decimal fix","CampaignId":"93579","RecipeName":"Monthly Credit Msg","RecipeId":"1","OfferId":"24303","OfferName":"Default Content","MboxName":"Global"});
+
+/*mboxHighlight+ (1of2) v1 ==> Response Plugin*/
+window.ttMETA=(typeof(window.ttMETA)!='undefined')?window.ttMETA:[];window.ttMETA.push({'mbox':'Global','campaign':'Monthly Credit Messaging AlwaysOn (99pounds) old library fix + decimal fix','experience':'Monthly Credit Msg','offer':'Default Content'});window.ttMBX=function(x){var mbxList=[];for(i=0;i<ttMETA.length;i++){if(ttMETA[i].mbox==x.getName()){mbxList.push(ttMETA[i])}}return mbxList[x.getId()]}
+
+var mboxTrack=function(mbox,params){
+var m,u,i,f=mboxFactoryDefault;if(f.getMboxes().length()>0){m=f.getMboxes().getById(0);u=m.getURL().replace("mbox="+m.getName(),"mbox="+mbox).replace("mboxPage="+f.getPageId(),"mboxPage="+mboxGenerateId())+'&'+params,i=new Image();i.style.display='none';i.src=u;document.body.appendChild(i)}else{f.getSignaler().signal('onEvent',mbox+'&'+params)}
+}
+var mboxTrackLink=function(mbox,params,url){mboxTrack(mbox,params);setTimeout("location='"+url+"'",500)}; function tt_Log(URL){     mboxTrack('nw_onClick','Destination='+URL); } function tt_Redirect(URL){     mboxTrack('nw_onClick','Destination='+URL);     setTimeout("location='"+URL+"'",500); }
+
+if (typeof(s_tnt) == 'undefined') { var s_tnt = ''; }
+s_tnt += '93579:1:0,';
+});mboxCurrent.loaded();
